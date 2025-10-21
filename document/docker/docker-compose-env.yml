@@ -1,0 +1,98 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root # Set root account password
+      MYSQL_DATABASE: mall # Auto create database
+    ports:
+      - 3307:3306 # Changed port to avoid conflict
+    volumes:
+      - /mydata/mysql/data/db:/var/lib/mysql # Data file mount
+      - /mydata/mysql/data/conf:/etc/mysql/conf.d # Configuration file mount
+      - /mydata/mysql/log:/var/log/mysql # Log file mount
+      - ./document/sql:/docker-entrypoint-initdb.d # Auto import SQL files
+  redis:
+    image: redis:7
+    container_name: redis
+    command: redis-server --appendonly yes
+    volumes:
+      - /mydata/redis/data:/data # Data file mount
+    ports:
+      - 6379:6379
+  nginx:
+    image: nginx:1.22
+    container_name: nginx
+    volumes:
+      - /mydata/nginx/conf:/etc/nginx # Configuration file mount
+      - /mydata/nginx/html:/usr/share/nginx/html # Static resource root directory mount
+      - /mydata/nginx/log:/var/log/nginx # Log file mount
+    ports:
+      - 80:80
+  rabbitmq:
+    image: rabbitmq:3.9.11-management
+    container_name: rabbitmq
+    volumes:
+      - /mydata/rabbitmq/data:/var/lib/rabbitmq # Data file mount
+      - /mydata/rabbitmq/log:/var/log/rabbitmq # Log file mount
+    ports:
+      - 5672:5672
+      - 15672:15672
+  elasticsearch:
+    image: elasticsearch:7.17.3
+    container_name: elasticsearch
+    user: root
+    environment:
+      - "cluster.name=elasticsearch" # Set cluster name to elasticsearch
+      - "discovery.type=single-node" # Start in single node mode
+      - "ES_JAVA_OPTS=-Xms512m -Xmx1024m" # Set JVM memory size
+    volumes:
+      - /mydata/elasticsearch/plugins:/usr/share/elasticsearch/plugins # Plugin file mount
+      - /mydata/elasticsearch/data:/usr/share/elasticsearch/data # Data file mount
+    ports:
+      - 9200:9200
+      - 9300:9300
+  logstash:
+    image: logstash:7.17.3
+    container_name: logstash
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /mydata/logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf # Mount logstash configuration file
+    depends_on:
+      - elasticsearch # Start logstash after elasticsearch starts
+    links:
+      - elasticsearch:es # Can access elasticsearch service using es domain name
+    ports:
+      - 4560:4560
+      - 4561:4561
+      - 4562:4562
+      - 4563:4563
+  kibana:
+    image: kibana:7.17.3
+    container_name: kibana
+    links:
+      - elasticsearch:es # Can access elasticsearch service using es domain name
+    depends_on:
+      - elasticsearch # Start kibana after elasticsearch starts
+    environment:
+      - "elasticsearch.hosts=http://es:9200" # Set elasticsearch access address
+    ports:
+      - 5601:5601
+  mongo:
+    image: mongo:4
+    container_name: mongo
+    volumes:
+      - /mydata/mongo/db:/data/db # Data file mount
+    ports:
+      - 27017:27017
+  nacos-registry:
+    image: nacos/nacos-server:v2.1.0
+    container_name: nacos-registry
+    environment:
+      - "MODE=standalone"
+    ports:
+      - 8848:8848

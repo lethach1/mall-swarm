@@ -1,0 +1,82 @@
+version: '3'
+services:
+  mall-admin:
+    image: mall/mall-admin:1.0-SNAPSHOT
+    container_name: mall-admin
+    ports:
+      - 8080:8080
+    volumes:
+      - /mydata/app/mall-admin/logs:/var/logs
+      - /etc/localtime:/etc/localtime
+    environment:
+      - 'TZ="Asia/Shanghai"'
+    external_links:
+      - mysql:db # Can access mysql service using db domain name
+      - nacos-registry:nacos-registry # Can access nacos service using nacos-registry domain name
+  mall-search:
+    image: mall/mall-search:1.0-SNAPSHOT
+    container_name: mall-search
+    ports:
+      - 8081:8081
+    volumes:
+      - /mydata/app/mall-search/logs:/var/logs
+      - /etc/localtime:/etc/localtime
+    environment:
+      - 'TZ="Asia/Shanghai"'
+    external_links:
+      - elasticsearch:es # Can access elasticsearch service using es domain name
+      - mysql:db # Can access mysql service using db domain name
+      - nacos-registry:nacos-registry # Can access nacos service using nacos-registry domain name
+  mall-portal:
+    image: mall/mall-portal:1.0-SNAPSHOT
+    container_name: mall-portal
+    ports:
+      - 8085:8085
+    volumes:
+      - /mydata/app/mall-portal/logs:/var/logs
+      - /etc/localtime:/etc/localtime
+    environment:
+      - 'TZ="Asia/Shanghai"'
+    external_links:
+      - redis:redis # Can access redis service using redis domain name
+      - mongo:mongo # Can access mongo service using mongo domain name
+      - mysql:db # Can access mysql service using db domain name
+      - rabbitmq:rabbit # Can access rabbitmq service using rabbit domain name
+      - nacos-registry:nacos-registry # Can access nacos service using nacos-registry domain name
+  mall-auth:
+    image: mall/mall-auth:1.0-SNAPSHOT
+    container_name: mall-auth
+    ports:
+      - 8401:8401
+    volumes:
+      - /mydata/app/mall-auth/logs:/var/logs
+      - /etc/localtime:/etc/localtime
+    environment:
+      - 'TZ="Asia/Shanghai"'
+    external_links:
+      - nacos-registry:nacos-registry # Can access nacos service using nacos-registry domain name
+  mall-gateway:
+    image: mall/mall-gateway:1.0-SNAPSHOT
+    container_name: mall-gateway
+    ports:
+      - 8201:8201
+    volumes:
+      - /mydata/app/mall-gateway/logs:/var/logs
+      - /etc/localtime:/etc/localtime
+    environment:
+      - 'TZ="Asia/Shanghai"'
+    external_links:
+      - redis:redis # Can access redis service using redis domain name
+      - nacos-registry:nacos-registry # Can access nacos service using nacos-registry domain name
+  mall-monitor:
+    image: mall/mall-monitor:1.0-SNAPSHOT
+    container_name: mall-monitor
+    ports:
+      - 8101:8101
+    volumes:
+      - /mydata/app/mall-monitor/logs:/var/logs
+      - /etc/localtime:/etc/localtime
+    environment:
+      - 'TZ="Asia/Shanghai"'
+    external_links:
+      - nacos-registry:nacos-registry # Can access nacos service using nacos-registry domain name
