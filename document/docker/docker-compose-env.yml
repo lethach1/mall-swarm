@@ -11,33 +11,33 @@ services:
     ports:
       - 3307:3306 # Changed port to avoid conflict
     volumes:
-      - /mydata/mysql/data/db:/var/lib/mysql # Data file mount
-      - /mydata/mysql/data/conf:/etc/mysql/conf.d # Configuration file mount
-      - /mydata/mysql/log:/var/log/mysql # Log file mount
+      - ./mydata/mysql/data/db:/var/lib/mysql # Data file mount
+      - ./mydata/mysql/data/conf:/etc/mysql/conf.d # Configuration file mount
+      - ./mydata/mysql/log:/var/log/mysql # Log file mount
       - ./document/sql:/docker-entrypoint-initdb.d # Auto import SQL files
   redis:
     image: redis:7
     container_name: redis
     command: redis-server --appendonly yes
     volumes:
-      - /mydata/redis/data:/data # Data file mount
+      - ./mydata/redis/data:/data # Data file mount
     ports:
       - 6379:6379
   nginx:
     image: nginx:1.22
     container_name: nginx
     volumes:
-      - /mydata/nginx/conf:/etc/nginx # Configuration file mount
-      - /mydata/nginx/html:/usr/share/nginx/html # Static resource root directory mount
-      - /mydata/nginx/log:/var/log/nginx # Log file mount
+      - ./mydata/nginx/conf:/etc/nginx # Configuration file mount
+      - ./mydata/nginx/html:/usr/share/nginx/html # Static resource root directory mount
+      - ./mydata/nginx/log:/var/log/nginx # Log file mount
     ports:
       - 80:80
   rabbitmq:
     image: rabbitmq:3.9.11-management
     container_name: rabbitmq
     volumes:
-      - /mydata/rabbitmq/data:/var/lib/rabbitmq # Data file mount
-      - /mydata/rabbitmq/log:/var/log/rabbitmq # Log file mount
+      - ./mydata/rabbitmq/data:/var/lib/rabbitmq # Data file mount
+      - ./mydata/rabbitmq/log:/var/log/rabbitmq # Log file mount
     ports:
       - 5672:5672
       - 15672:15672
@@ -50,27 +50,27 @@ services:
       - "discovery.type=single-node" # Start in single node mode
       - "ES_JAVA_OPTS=-Xms512m -Xmx1024m" # Set JVM memory size
     volumes:
-      - /mydata/elasticsearch/plugins:/usr/share/elasticsearch/plugins # Plugin file mount
-      - /mydata/elasticsearch/data:/usr/share/elasticsearch/data # Data file mount
+      - ./mydata/elasticsearch/plugins:/usr/share/elasticsearch/plugins # Plugin file mount
+      - ./mydata/elasticsearch/data:/usr/share/elasticsearch/data # Data file mount
     ports:
       - 9200:9200
       - 9300:9300
-  logstash:
-    image: logstash:7.17.3
-    container_name: logstash
-    environment:
-      - TZ=Asia/Shanghai
-    volumes:
-      - /mydata/logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf # Mount logstash configuration file
-    depends_on:
-      - elasticsearch # Start logstash after elasticsearch starts
-    links:
-      - elasticsearch:es # Can access elasticsearch service using es domain name
-    ports:
-      - 4560:4560
-      - 4561:4561
-      - 4562:4562
-      - 4563:4563
+  # logstash:
+  #   image: logstash:7.17.3
+  #   container_name: logstash
+  #   environment:
+  #     - TZ=Asia/Shanghai
+  #   volumes:
+  #     - ./mydata/logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf # Mount logstash configuration file
+  #   depends_on:
+  #     - elasticsearch # Start logstash after elasticsearch starts
+  #   links:
+  #     - elasticsearch:es # Can access elasticsearch service using es domain name
+  #   ports:
+  #     - 4560:4560
+  #     - 4561:4561
+  #     - 4562:4562
+  #     - 4563:4563
   kibana:
     image: kibana:7.17.3
     container_name: kibana
@@ -86,7 +86,7 @@ services:
     image: mongo:4
     container_name: mongo
     volumes:
-      - /mydata/mongo/db:/data/db # Data file mount
+      - ./mydata/mongo/db:/data/db # Data file mount
     ports:
       - 27017:27017
   nacos-registry:
