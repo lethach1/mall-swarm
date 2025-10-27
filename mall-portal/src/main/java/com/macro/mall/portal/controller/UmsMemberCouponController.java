@@ -43,7 +43,7 @@ public class UmsMemberCouponController {
     }
 
     @Operation(summary = "获取会员优惠券历史列表")
-    @Parameter(name = "useStatus", description = "优惠券筛选类型:0->未使用；1->已使用；2->已过期",
+    @Parameter(name = "useStatus", description = "Coupon filter type: 0->Unused; 1->Used; 2->Expired",
             in = ParameterIn.QUERY,schema = @Schema(type = "integer",allowableValues = {"0","1","2"}))
     @RequestMapping(value = "/listHistory", method = RequestMethod.GET)
     @ResponseBody
@@ -53,7 +53,7 @@ public class UmsMemberCouponController {
     }
 
     @Operation(summary = "获取会员优惠券列表")
-    @Parameter(name = "useStatus", description = "优惠券筛选类型:0->未使用；1->已使用；2->已过期",
+    @Parameter(name = "useStatus", description = "Coupon filter type: 0->Unused; 1->Used; 2->Expired",
             in = ParameterIn.QUERY,schema = @Schema(type = "integer",allowableValues = {"0","1","2"}))
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
@@ -62,8 +62,8 @@ public class UmsMemberCouponController {
         return CommonResult.success(couponList);
     }
 
-    @Operation(summary = "获取登录会员购物车的相关优惠券")
-    @Parameter(name = "type", description = "使用可用:0->不可用；1->可用",
+    @Operation(summary = "Get Related Coupons for Logged-in Member's Shopping Cart")
+    @Parameter(name = "type", description = "Usage availability: 0->Unavailable; 1->Available",
             in = ParameterIn.PATH,schema = @Schema(type = "integer",defaultValue = "1",allowableValues = {"0","1"}))
     @RequestMapping(value = "/list/cart/{type}", method = RequestMethod.GET)
     @ResponseBody
@@ -73,7 +73,7 @@ public class UmsMemberCouponController {
         return CommonResult.success(couponHistoryList);
     }
 
-    @Operation(summary = "获取当前商品相关优惠券")
+    @Operation(summary = "Get Current Product Related Coupons")
     @RequestMapping(value = "/listByProduct/{productId}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<SmsCoupon>> listByProduct(@PathVariable Long productId) {

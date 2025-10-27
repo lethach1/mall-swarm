@@ -19,11 +19,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 会员登录注册管理Controller
+ * Member Login and Registration Management Controller
  * Created by macro on 2018/8/3.
  */
 @Controller
-@Tag(name = "UmsMemberController", description = "会员登录注册管理")
+@Tag(name = "UmsMemberController", description = "Member Login and Registration Management")
 @RequestMapping("/sso")
 public class UmsMemberController {
     @Autowired
@@ -31,7 +31,7 @@ public class UmsMemberController {
     @Value("${sa-token.token-prefix}")
     private String tokenHead;
 
-    @Operation(summary = "会员注册")
+    @Operation(summary = "Member Registration")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult register(@RequestParam String username,
@@ -42,7 +42,7 @@ public class UmsMemberController {
         return CommonResult.success(null,"注册成功");
     }
 
-    @Operation(summary = "会员登录")
+    @Operation(summary = "Member Login")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult login(@RequestParam String username,
@@ -57,7 +57,7 @@ public class UmsMemberController {
         return CommonResult.success(tokenMap);
     }
 
-    @Operation(summary = "获取会员信息")
+    @Operation(summary = "Get Member Information")
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult info() {
@@ -65,7 +65,7 @@ public class UmsMemberController {
         return CommonResult.success(member);
     }
 
-    @Operation(summary = "登出功能")
+    @Operation(summary = "Logout Function")
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult logout() {
@@ -73,7 +73,7 @@ public class UmsMemberController {
         return CommonResult.success(null);
     }
 
-    @Operation(summary = "获取验证码")
+    @Operation(summary = "Get Verification Code")
     @RequestMapping(value = "/getAuthCode", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult getAuthCode(@RequestParam String telephone) {
@@ -81,7 +81,7 @@ public class UmsMemberController {
         return CommonResult.success(authCode,"获取验证码成功");
     }
 
-    @Operation(summary = "修改密码")
+    @Operation(summary = "Update Password")
     @RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updatePassword(@RequestParam String telephone,

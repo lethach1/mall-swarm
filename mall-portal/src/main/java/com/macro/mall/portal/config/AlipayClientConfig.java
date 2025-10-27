@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @auther macrozheng
- * @description 支付宝请求客户端配置
+ * @author macrozheng
+ * @description Alipay Request Client Configuration
  * @date 2023/9/8
  * @github https://github.com/macrozheng
  */

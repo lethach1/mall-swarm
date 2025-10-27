@@ -6,8 +6,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * @auther macrozheng
- * @description 支付宝支付相关配置
+ * @author macrozheng
+ * @description Alipay Payment Related Configuration
  * @date 2023/9/8
  * @github https://github.com/macrozheng
  */
@@ -17,41 +17,41 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "alipay")
 public class AlipayConfig {
     /**
-     * 支付宝网关
+     * Alipay Gateway
      */
     private String gatewayUrl;
     /**
-     * 应用ID
+     * Application ID
      */
     private String appId;
     /**
-     * 应用私钥
+     * Application Private Key
      */
     private String appPrivateKey;
     /**
-     * 支付宝公钥
+     * Alipay Public Key
      */
     private String alipayPublicKey;
     /**
-     * 用户确认支付后，支付宝调用的页面返回路径
-     * 开发环境为：http://localhost:8060/#/pages/money/paySuccess
+     * Return URL after user confirms payment (Alipay calls this page)
+     * Development environment: http://localhost:8060/#/pages/money/paySuccess
      */
     private String returnUrl;
     /**
-     * 支付成功后，支付宝服务器主动通知商户服务器里的异步通知回调（需要公网能访问）
-     * 开发环境为：http://localhost:8085/alipay/notify
+     * Asynchronous notification callback URL after successful payment (must be publicly accessible)
+     * Development environment: http://localhost:8085/alipay/notify
      */
     private String notifyUrl;
     /**
-     * 参数返回格式，只支持JSON
+     * Parameter return format, only supports JSON
      */
     private String format = "JSON";
     /**
-     * 请求使用的编码格式
+     * Encoding format used for requests
      */
     private String charset = "UTF-8";
     /**
-     * 生成签名字符串所使用的签名算法类型
+     * Signature algorithm type used to generate signature string
      */
     private String signType = "RSA2";
 }
