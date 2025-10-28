@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 订单管理Service实现类
+ * Order management Service implementation class
  * Created by macro on 2018/10/11.
  */
 @Service
@@ -40,9 +40,9 @@ public class OmsOrderServiceImpl implements OmsOrderService {
 
     @Override
     public int delivery(List<OmsOrderDeliveryParam> deliveryParamList) {
-        //批量发货
+        // Batch delivery
         int count = orderDao.delivery(deliveryParamList);
-        //添加操作记录
+        // Add operation records
         List<OmsOrderOperateHistory> operateHistoryList = deliveryParamList.stream()
                 .map(omsOrderDeliveryParam -> {
                     OmsOrderOperateHistory history = new OmsOrderOperateHistory();
@@ -104,7 +104,7 @@ public class OmsOrderServiceImpl implements OmsOrderService {
         order.setReceiverRegion(receiverInfoParam.getReceiverRegion());
         order.setModifyTime(new Date());
         int count = orderMapper.updateByPrimaryKeySelective(order);
-        //插入操作记录
+        // Insert operation record
         OmsOrderOperateHistory history = new OmsOrderOperateHistory();
         history.setOrderId(receiverInfoParam.getOrderId());
         history.setCreateTime(new Date());
@@ -123,7 +123,7 @@ public class OmsOrderServiceImpl implements OmsOrderService {
         order.setDiscountAmount(moneyInfoParam.getDiscountAmount());
         order.setModifyTime(new Date());
         int count = orderMapper.updateByPrimaryKeySelective(order);
-        //插入操作记录
+        // Insert operation record
         OmsOrderOperateHistory history = new OmsOrderOperateHistory();
         history.setOrderId(moneyInfoParam.getOrderId());
         history.setCreateTime(new Date());

@@ -20,7 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * oss上传管理Service实现类
+ * OSS upload management Service implementation class
  * Created by macro on 2018/5/17.
  */
 @Service
@@ -43,26 +43,26 @@ public class OssServiceImpl implements OssService {
 	@Autowired
 	private OSSClient ossClient;
 
-	/**
-	 * 签名生成
-	 */
+    /**
+     * Generate signature
+     */
 	@Override
 	public OssPolicyResult policy() {
 		OssPolicyResult result = new OssPolicyResult();
-		// 存储目录
+        // Storage directory
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 		String dir = ALIYUN_OSS_DIR_PREFIX+sdf.format(new Date());
-		// 签名有效期
+        // Signature expiration time
 		long expireEndTime = System.currentTimeMillis() + ALIYUN_OSS_EXPIRE * 1000;
 		Date expiration = new Date(expireEndTime);
-		// 文件大小
+        // File size
 		long maxSize = ALIYUN_OSS_MAX_SIZE * 1024 * 1024;
-		// 回调
+        // Callback
 		OssCallbackParam callback = new OssCallbackParam();
 		callback.setCallbackUrl(ALIYUN_OSS_CALLBACK);
 		callback.setCallbackBody("filename=${object}&size=${size}&mimeType=${mimeType}&height=${imageInfo.height}&width=${imageInfo.width}");
 		callback.setCallbackBodyType("application/x-www-form-urlencoded");
-		// 提交节点
+        // Submission endpoint
 		String action = "http://" + ALIYUN_OSS_BUCKET_NAME + "." + ALIYUN_OSS_ENDPOINT;
 		try {
 			PolicyConditions policyConds = new PolicyConditions();
@@ -73,7 +73,7 @@ public class OssServiceImpl implements OssService {
 			String policy = BinaryUtil.toBase64String(binaryData);
 			String signature = ossClient.calculatePostSignature(postPolicy);
 			String callbackData = BinaryUtil.toBase64String(JSONUtil.parse(callback).toString().getBytes("utf-8"));
-			// 返回结果
+            // Return result
 			result.setAccessKeyId(ossClient.getCredentialsProvider().getCredentials().getAccessKeyId());
 			result.setPolicy(policy);
 			result.setSignature(signature);
@@ -81,7 +81,7 @@ public class OssServiceImpl implements OssService {
 			result.setCallback(callbackData);
 			result.setHost(action);
 		} catch (Exception e) {
-			LOGGER.error("签名生成失败", e);
+            LOGGER.error("Failed to generate signature", e);
 		}
 		return result;
 	}

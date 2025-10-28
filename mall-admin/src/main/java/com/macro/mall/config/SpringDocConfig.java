@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * SpringDoc相关配置
+ * SpringDoc related configuration
  * Created by macro on 2024/3/5.
  */
 @Configuration
@@ -45,15 +45,15 @@ public class SpringDocConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        //配置访问`/swagger-ui/`路径时可以直接跳转到`/swagger-ui/index.html`
+        // Configure so that accessing `/swagger-ui/` redirects to `/swagger-ui/index.html`
         registry.addViewController("/swagger-ui/").setViewName("redirect:/swagger-ui/index.html");
     }
 
     @Bean
     public GlobalOpenApiCustomizer orderGlobalOpenApiCustomizer() {
-        //解决Knife4j配置认证后无法自动添加认证头的问题
+        // Resolve the issue where, after configuring authentication in Knife4j, the auth header is not added automatically
         return openApi -> {
-            //全局添加鉴权参数
+            // Add authentication parameters globally
             if (openApi.getPaths() != null) {
                 openApi.getPaths().forEach((s, pathItem) -> {
                     pathItem.readOperations().forEach(operation -> {

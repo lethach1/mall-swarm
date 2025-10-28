@@ -8,58 +8,58 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * 后台角色管理Service
+ * Backend role management Service
  * Created by macro on 2018/9/30.
  */
 public interface UmsRoleService {
     /**
-     * 添加角色
+     * Add role
      */
     int create(UmsRole role);
 
     /**
-     * 修改角色信息
+     * Update role information
      */
     int update(Long id, UmsRole role);
 
     /**
-     * 批量删除角色
+     * Batch delete roles
      */
     int delete(List<Long> ids);
 
     /**
-     * 获取所有角色列表
+     * Get all roles
      */
     List<UmsRole> list();
 
     /**
-     * 分页获取角色列表
+     * Get role list with pagination
      */
     List<UmsRole> list(String keyword, Integer pageSize, Integer pageNum);
 
     /**
-     * 根据管理员ID获取对应菜单
+     * Get menus by admin ID
      */
     List<UmsMenu> getMenuList(Long adminId);
 
     /**
-     * 获取角色相关菜单
+     * Get menus related to the role
      */
     List<UmsMenu> listMenu(Long roleId);
 
     /**
-     * 获取角色相关资源
+     * Get resources related to the role
      */
     List<UmsResource> listResource(Long roleId);
 
     /**
-     * 给角色分配菜单
+     * Assign menus to the role
      */
     @Transactional
     int allocMenu(Long roleId, List<Long> menuIds);
 
     /**
-     * 给角色分配资源
+     * Assign resources to the role
      */
     @Transactional
     int allocResource(Long roleId, List<Long> resourceIds);

@@ -9,75 +9,75 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * 后台管理员Service
+ * Admin management Service
  * Created by macro on 2018/4/26.
  */
 public interface UmsAdminService {
     /**
-     * 根据用户名获取后台管理员
+     * Get admin by username
      */
     UmsAdmin getAdminByUsername(String username);
 
     /**
-     * 注册功能
+     * Register
      */
     UmsAdmin register(UmsAdminParam umsAdminParam);
 
     /**
-     * 登录功能
-     * @param username 用户名
-     * @param password 密码
+     * Login
+     * @param username username
+     * @param password password
      */
     SaTokenInfo login(String username, String password);
 
     /**
-     * 根据用户id获取用户
+     * Get user by ID
      */
     UmsAdmin getItem(Long id);
 
     /**
-     * 根据用户名或昵称分页查询用户
+     * Paginated query by username or nickname
      */
     List<UmsAdmin> list(String keyword, Integer pageSize, Integer pageNum);
 
     /**
-     * 修改指定用户信息
+     * Update specified user information
      */
     int update(Long id, UmsAdmin admin);
 
     /**
-     * 删除指定用户
+     * Delete specified user
      */
     int delete(Long id);
 
     /**
-     * 修改用户角色关系
+     * Update user-role relations
      */
     @Transactional
     int updateRole(Long adminId, List<Long> roleIds);
 
     /**
-     * 获取用户对于角色
+     * Get roles for user
      */
     List<UmsRole> getRoleList(Long adminId);
 
     /**
-     * 获取指定用户的可访问资源
+     * Get accessible resources for specified user
      */
     List<UmsResource> getResourceList(Long adminId);
 
     /**
-     * 修改密码
+     * Update password
      */
     int updatePassword(UpdateAdminPasswordParam updatePasswordParam);
 
     /**
-     * 获取当前登录后台用户
+     * Get current logged-in admin
      */
     UmsAdmin getCurrentAdmin();
 
     /**
-     * 登出操作
+     * Logout
      */
     void logout();
 }
