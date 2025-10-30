@@ -1,63 +1,63 @@
 package com.macro.mall.common.constant;
 
 /**
- * 权限相关常量定义
+ * Permission related constant definitions
  * Created by macro on 2020/6/19.
  */
 public interface AuthConstant {
 
     /**
-     * JWT存储权限前缀
+     * JWT authority prefix
      */
     String AUTHORITY_PREFIX = "ROLE_";
 
     /**
-     * JWT存储权限属性
+     * JWT authority claim attribute
      */
     String AUTHORITY_CLAIM_NAME = "authorities";
 
     /**
-     * 后台管理client_id
+     * Backend admin client_id
      */
     String ADMIN_CLIENT_ID = "admin-app";
 
     /**
-     * 前台商城client_id
+     * Frontend portal client_id
      */
     String PORTAL_CLIENT_ID = "portal-app";
 
     /**
-     * 后台管理接口路径匹配
+     * Backend admin API path pattern
      */
     String ADMIN_URL_PATTERN = "/mall-admin/**";
 
     /**
-     * Redis缓存权限规则（路径->资源）
+     * Redis cache permission rule (path -> resource)
      */
     String PATH_RESOURCE_MAP = "auth:pathResourceMap";
 
     /**
-     * 认证信息Http请求头
+     * Auth info Http request header
      */
     String JWT_TOKEN_HEADER = "Authorization";
 
     /**
-     * JWT令牌前缀
+     * JWT token prefix
      */
     String JWT_TOKEN_PREFIX = "Bearer ";
 
     /**
-     * 用户信息Http请求头
+     * User info Http request header
      */
     String USER_TOKEN_HEADER = "user";
 
     /**
-     * sa-token session中存储的会员信息
+     * Member info stored in sa-token session
      */
     String STP_MEMBER_INFO = "memberInfo";
 
     /**
-     * sa-token session中存储的后台管理员信息
+     * Admin info stored in sa-token session
      */
     String STP_ADMIN_INFO = "adminInfo";
 

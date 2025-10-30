@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration>
 <configuration>
-    <!--引用默认日志配置-->
+    <!-- Reference the default log configuration -->
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
-    <!--使用默认的控制台日志输出实现-->
+    <!-- Use the default console log output implementation -->
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
-    <!--应用名称-->
+    <!-- Application name -->
     <springProperty scope="context" name="APP_NAME" source="spring.application.name" defaultValue="springBoot"/>
-    <!--日志文件保存路径-->
+    <!-- Log file save path -->
     <property name="LOG_FILE_PATH" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/logs}"/>
-    <!--LogStash访问host-->
+    <!-- LogStash access host -->
     <springProperty name="LOG_STASH_HOST" scope="context" source="logstash.host" defaultValue="localhost"/>
-    <!--是否开启LogStash插件内部日志-->
+    <!-- Enable or disable LogStash plugin internal log -->
     <springProperty name="ENABLE_INNER_LOG" scope="context" source="logstash.enableInnerLog" defaultValue="false"/>
-    <!--配置不打印logback内部的状态信息，排查logback配置问题时可注释掉-->
+    <!-- To not print logback internal status info (uncomment for troubleshooting) -->
     <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
-    <!--DEBUG日志输出到文件-->
+    <!-- DEBUG log output to file -->
     <appender name="FILE_DEBUG"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!--输出DEBUG以上级别日志-->
+        <!-- Output log level DEBUG and above -->
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>DEBUG</level>
         </filter>
         <encoder>
-            <!--设置为默认的文件日志格式-->
+            <!-- Set as the default file log format -->
             <pattern>${FILE_LOG_PATTERN}</pattern>
             <charset>UTF-8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <!--设置文件命名格式-->
+            <!-- Set file naming format -->
             <fileNamePattern>${LOG_FILE_PATH}/debug/${APP_NAME}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
-            <!--设置日志文件大小，超过就重新生成文件，默认10M-->
+            <!-- Set log file size, rollover if exceeded. Default 10M -->
             <maxFileSize>${LOG_FILE_MAX_SIZE:-10MB}</maxFileSize>
-            <!--日志文件保留天数，默认30天-->
+            <!-- Number of days to retain log files, default 30 days -->
             <maxHistory>${LOG_FILE_MAX_HISTORY:-30}</maxHistory>
         </rollingPolicy>
     </appender>
 
-    <!--ERROR日志输出到文件-->
+    <!-- ERROR log output to file -->
     <appender name="FILE_ERROR"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!--只输出ERROR级别的日志-->
+        <!-- Only output ERROR level logs -->
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
         </filter>
         <encoder>
-            <!--设置为默认的文件日志格式-->
+            <!-- Set as the default file log format -->
             <pattern>${FILE_LOG_PATTERN}</pattern>
             <charset>UTF-8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <!--设置文件命名格式-->
+            <!-- Set file naming format -->
             <fileNamePattern>${LOG_FILE_PATH}/error/${APP_NAME}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
-            <!--设置日志文件大小，超过就重新生成文件，默认10M-->
+            <!-- Set log file size, rollover if exceeded. Default 10M -->
             <maxFileSize>${LOG_FILE_MAX_SIZE:-10MB}</maxFileSize>
-            <!--日志文件保留天数，默认30天-->
+            <!-- Number of days to retain log files, default 30 days -->
             <maxHistory>${LOG_FILE_MAX_HISTORY:-30}</maxHistory>
         </rollingPolicy>
     </appender>
 
-    <!--DEBUG日志输出到LogStash-->
+    <!-- DEBUG log output to LogStash -->
     <appender name="LOG_STASH_DEBUG" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>DEBUG</level>
@@ -73,7 +73,7 @@
                 <timestamp>
                     <timeZone>Asia/Shanghai</timeZone>
                 </timestamp>
-                <!--自定义日志输出格式-->
+                <!-- Custom log output format -->
                 <pattern>
                     <pattern>
                         {
@@ -92,7 +92,7 @@
         </encoder>
     </appender>
 
-    <!--ERROR日志输出到LogStash-->
+    <!-- ERROR log output to LogStash -->
     <appender name="LOG_STASH_ERROR" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>
@@ -106,7 +106,7 @@
                 <timestamp>
                     <timeZone>Asia/Shanghai</timeZone>
                 </timestamp>
-                <!--自定义日志输出格式-->
+                <!-- Custom log output format -->
                 <pattern>
                     <pattern>
                         {
@@ -125,7 +125,7 @@
         </encoder>
     </appender>
 
-    <!--业务日志输出到LogStash-->
+    <!-- Business log output to LogStash -->
     <appender name="LOG_STASH_BUSINESS" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <destination>${LOG_STASH_HOST}:4562</destination>
         <addDefaultStatusListener>${ENABLE_INNER_LOG}</addDefaultStatusListener>
@@ -134,7 +134,7 @@
                 <timestamp>
                     <timeZone>Asia/Shanghai</timeZone>
                 </timestamp>
-                <!--自定义日志输出格式-->
+                <!-- Custom log output format -->
                 <pattern>
                     <pattern>
                         {
@@ -153,7 +153,7 @@
         </encoder>
     </appender>
 
-    <!--接口访问记录日志输出到LogStash-->
+    <!-- API access record log output to LogStash -->
     <appender name="LOG_STASH_RECORD" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <destination>${LOG_STASH_HOST}:4563</destination>
         <addDefaultStatusListener>${ENABLE_INNER_LOG}</addDefaultStatusListener>
@@ -162,7 +162,7 @@
                 <timestamp>
                     <timeZone>Asia/Shanghai</timeZone>
                 </timestamp>
-                <!--自定义日志输出格式-->
+                <!-- Custom log output format -->
                 <pattern>
                     <pattern>
                         {
@@ -178,7 +178,7 @@
         </encoder>
     </appender>
 
-    <!--控制框架输出日志-->
+    <!-- Control framework log output -->
     <logger name="org.slf4j" level="INFO"/>
     <logger name="springfox" level="INFO"/>
     <logger name="io.swagger" level="INFO"/>
