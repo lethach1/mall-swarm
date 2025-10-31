@@ -24,7 +24,7 @@ import java.util.List;
 public class SmsCouponController {
     @Autowired
     private SmsCouponService couponService;
-    @Operation(summary = "Add coupon")
+    @Operation(summary = "Create coupon")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult add(@RequestBody SmsCouponParam couponParam) {
@@ -57,7 +57,7 @@ public class SmsCouponController {
         return CommonResult.failed();
     }
 
-    @Operation(summary = "Get coupon list by name and type with pagination")
+    @Operation(summary = "Paginated query coupon list by name and type")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<SmsCoupon>> list(
@@ -69,7 +69,7 @@ public class SmsCouponController {
         return CommonResult.success(CommonPage.restPage(couponList));
     }
 
-    @Operation(summary = "Get detailed information of a single coupon")
+    @Operation(summary = "Get coupon details")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<SmsCouponParam> getItem(@PathVariable Long id) {

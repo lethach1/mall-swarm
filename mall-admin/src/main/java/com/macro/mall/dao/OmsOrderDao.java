@@ -24,7 +24,7 @@ public interface OmsOrderDao {
     int delivery(@Param("list") List<OmsOrderDeliveryParam> deliveryParamList);
 
     /**
-     * Get order details
+     * Get order detail
      */
     OmsOrderDetail getDetail(@Param("id") Long id);
 }

@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Application information wrapper
+ * Encapsulation of return application information
  * Created by macro on 2018/10/18.
  */
 public class OmsOrderReturnApplyResult extends OmsOrderReturnApply {

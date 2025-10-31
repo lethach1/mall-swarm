@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Callback parameters after successful OSS upload
+ * OSS upload success callback parameters
  * Created by macro on 2018/5/17.
  */
 @Data
@@ -13,8 +13,8 @@ import lombok.EqualsAndHashCode;
 public class OssCallbackParam {
     @Schema(title = "Callback URL")
     private String callbackUrl;
-    @Schema(title = "Parameters passed in request during callback")
+    @Schema(title = "Callback body passed in request")
     private String callbackBody;
-    @Schema(title = "Format of parameters during callback, e.g., form submission")
+    @Schema(title = "Callback body type, e.g., form-data")
     private String callbackBodyType;
 }

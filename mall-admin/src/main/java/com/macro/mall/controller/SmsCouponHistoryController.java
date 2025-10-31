@@ -17,17 +17,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
- * Coupon receiving record management Controller
+ * Coupon receive history management Controller
  * Created by macro on 2018/11/6.
  */
 @Controller
-@Tag(name = "SmsCouponHistoryController", description = "Coupon receiving record management")
+@Tag(name = "SmsCouponHistoryController", description = "Coupon receive history management")
 @RequestMapping("/couponHistory")
 public class SmsCouponHistoryController {
     @Autowired
     private SmsCouponHistoryService historyService;
 
-    @Operation(summary = "Get receive records by coupon ID, use status, order number with pagination")
+    @Operation(summary = "Paginated query of receive records by coupon id, use status, order number")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<SmsCouponHistory>> list(@RequestParam(value = "couponId", required = false) Long couponId,

@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 /**
- * Parameters for confirming receipt
+ * Confirm receipt submission parameters
  * Created by macro on 2018/10/18.
  */
 @Getter
@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class OmsUpdateStatusParam {
     @Schema(title = "Service order number")
     private Long id;
-    @Schema(title = "Associated receiving address ID")
+    @Schema(title = "Company address ID")
     private Long companyAddressId;
     @Schema(title = "Confirmed refund amount")
     private BigDecimal returnAmount;

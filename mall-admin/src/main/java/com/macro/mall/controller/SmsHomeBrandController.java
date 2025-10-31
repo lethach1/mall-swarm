@@ -24,7 +24,7 @@ public class SmsHomeBrandController {
     @Autowired
     private SmsHomeBrandService homeBrandService;
 
-    @Operation(summary = "Add recommended brands for home page")
+    @Operation(summary = "Create home page recommended brands")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody List<SmsHomeBrand> homeBrandList) {

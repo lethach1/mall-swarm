@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * Custom DAO for member pricing
+ * Custom DAO for member prices
  * Created by macro on 2018/4/26.
  */
 public interface PmsMemberPriceDao {

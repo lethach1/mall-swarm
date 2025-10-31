@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 /**
- * 搜索商品的信息
+ * Information of searchable product
  * Created by macro on 2018/6/19.
  */
 @Document(indexName = "pms")

@@ -11,6 +11,6 @@ import lombok.Setter;
 public class PmsProductResult extends PmsProductParam {
     @Getter
     @Setter
-    @Schema(title = "Parent ID of the selected product category")
+    @Schema(title = "Parent ID of selected category")
     private Long cateParentId;
 }

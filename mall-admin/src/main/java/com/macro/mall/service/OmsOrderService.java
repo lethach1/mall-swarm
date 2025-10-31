@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface OmsOrderService {
     /**
-     * Order query
+     * Query orders
      */
     List<OmsOrder> list(OmsOrderQueryParam queryParam, Integer pageSize, Integer pageNum);
 
@@ -34,18 +34,18 @@ public interface OmsOrderService {
     int delete(List<Long> ids);
 
     /**
-     * Get details of specified order
+     * Get specified order details
      */
     OmsOrderDetail detail(Long id);
 
     /**
-     * Update order recipient information
+     * Update order receiver information
      */
     @Transactional
     int updateReceiverInfo(OmsReceiverInfoParam receiverInfoParam);
 
     /**
-     * Update order fee information
+     * Update order cost information
      */
     @Transactional
     int updateMoneyInfo(OmsMoneyInfoParam moneyInfoParam);

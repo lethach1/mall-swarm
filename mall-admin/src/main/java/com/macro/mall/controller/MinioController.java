@@ -52,7 +52,7 @@ public class MinioController {
             if (isExist) {
                 LOGGER.info("Bucket already exists!");
             } else {
-                // Create the bucket and set read-only permissions
+                // Create the bucket and set read-only policy
                 minioClient.makeBucket(MakeBucketArgs.builder().bucket(BUCKET_NAME).build());
                 BucketPolicyConfigDto bucketPolicyConfigDto = createBucketPolicyConfigDto(BUCKET_NAME);
                 SetBucketPolicyArgs setBucketPolicyArgs = SetBucketPolicyArgs.builder()
@@ -63,9 +63,9 @@ public class MinioController {
             }
             String filename = file.getOriginalFilename();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-            // Set the object name
+            // Set object name
             String objectName = sdf.format(new Date()) + "/" + filename;
-            // Upload a file to the bucket using putObject
+            // Upload the file to the bucket using putObject
             PutObjectArgs putObjectArgs = PutObjectArgs.builder()
                     .bucket(BUCKET_NAME)
                     .object(objectName)
@@ -79,7 +79,7 @@ public class MinioController {
             return CommonResult.success(minioUploadDto);
         } catch (Exception e) {
             e.printStackTrace();
-            LOGGER.info("Upload error occurred: {}!", e.getMessage());
+            LOGGER.info("Upload error: {}!", e.getMessage());
         }
         return CommonResult.failed();
     }

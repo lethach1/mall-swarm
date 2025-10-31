@@ -14,17 +14,17 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.servlet.http.HttpServletRequest;
 
 /**
- * Oss related operation APIs
+ * OSS related operations API
  * Created by macro on 2018/4/26.
  */
 @Controller
-@Tag(name = "OssController", description = "Oss management")
+@Tag(name = "OssController", description = "OSS management")
 @RequestMapping("/aliyun/oss")
 public class OssController {
     @Autowired
     private OssServiceImpl ossService;
 
-    @Operation(summary = "Generate OSS upload policy/signature")
+    @Operation(summary = "Generate OSS upload policy signature")
     @RequestMapping(value = "/policy", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<OssPolicyResult> policy() {

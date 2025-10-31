@@ -25,7 +25,7 @@ public class SmsFlashPromotionProductRelationController {
     @Autowired
     private SmsFlashPromotionProductRelationService relationService;
 
-    @Operation(summary = "Batch select products to add relations")
+    @Operation(summary = "Batch add relations by selecting products")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody List<SmsFlashPromotionProductRelation> relationList) {
@@ -66,7 +66,7 @@ public class SmsFlashPromotionProductRelationController {
         return CommonResult.success(relation);
     }
 
-    @Operation(summary = "Paginated query of relations and product info for different sessions")
+    @Operation(summary = "Paginated query of session relations and product info")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<SmsFlashPromotionProduct>> list(@RequestParam(value = "flashPromotionId") Long flashPromotionId,

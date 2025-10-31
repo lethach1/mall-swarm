@@ -22,7 +22,7 @@ public interface PmsProductService {
     int create(PmsProductParam productParam);
 
     /**
-     * Get update information by product ID
+     * Get update info by product ID
      */
     PmsProductResult getUpdateInfo(Long id);
 
@@ -33,36 +33,36 @@ public interface PmsProductService {
     int update(Long id, PmsProductParam productParam);
 
     /**
-     * Query products with pagination
-     */
+    * Paginated query of products
+    */
     List<PmsProduct> list(PmsProductQueryParam productQueryParam, Integer pageSize, Integer pageNum);
 
     /**
-     * Batch update verification status
-     * @param ids product IDs
-     * @param verifyStatus verification status
-     * @param detail verification details
+     * Batch update verify status
+     * @param ids Product IDs
+     * @param verifyStatus Verify status
+     * @param detail Verify detail
      */
     @Transactional
     int updateVerifyStatus(List<Long> ids, Integer verifyStatus, String detail);
 
     /**
-     * Batch update product publish status
+     * Batch update publish status
      */
     int updatePublishStatus(List<Long> ids, Integer publishStatus);
 
     /**
-     * Batch update product recommend status
+     * Batch update recommend status
      */
     int updateRecommendStatus(List<Long> ids, Integer recommendStatus);
 
     /**
-     * Batch update new product status
+     * Batch update new status
      */
     int updateNewStatus(List<Long> ids, Integer newStatus);
 
     /**
-     * Batch update delete status for products
+     * Batch update delete status
      */
     int updateDeleteStatus(List<Long> ids, Integer deleteStatus);
 

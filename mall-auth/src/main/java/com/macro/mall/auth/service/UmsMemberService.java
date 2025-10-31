@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * @auther macrozheng
- * @description 前台会员服务远程调用Service
+ * @author macrozheng
+ * @description Remote service for portal member operations
  * @date 2024/1/30
  * @github https://github.com/macrozheng
  */

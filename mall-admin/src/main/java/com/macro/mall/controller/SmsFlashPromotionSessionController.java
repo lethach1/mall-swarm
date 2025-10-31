@@ -24,7 +24,7 @@ public class SmsFlashPromotionSessionController {
     @Autowired
     private SmsFlashPromotionSessionService flashPromotionSessionService;
 
-    @Operation(summary = "Add session")
+    @Operation(summary = "Create session")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody SmsFlashPromotionSession promotionSession) {
@@ -84,7 +84,7 @@ public class SmsFlashPromotionSessionController {
         return CommonResult.success(promotionSessionList);
     }
 
-    @Operation(summary = "Get all selectable sessions and their counts")
+    @Operation(summary = "Get all selectable sessions and their quantities")
     @RequestMapping(value = "/selectList", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<SmsFlashPromotionSessionDetail>> selectList(Long flashPromotionId) {

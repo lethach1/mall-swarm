@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Parameters for modifying order recipient information
+ * Parameters for updating order receiver information
  * Created by macro on 2018/10/29.
  */
 @Getter
@@ -17,7 +17,7 @@ public class OmsReceiverInfoParam {
     private String receiverName;
     @Schema(title = "Receiver phone")
     private String receiverPhone;
-    @Schema(title = "Receiver postal code")
+    @Schema(title = "Receiver postcode")
     private String receiverPostCode;
     @Schema(title = "Detailed address")
     private String receiverDetailAddress;
@@ -25,8 +25,8 @@ public class OmsReceiverInfoParam {
     private String receiverProvince;
     @Schema(title = "City")
     private String receiverCity;
-    @Schema(title = "District")
+    @Schema(title = "District/Region")
     private String receiverRegion;
-    @Schema(title = "Order status: 0->Pending payment; 1->Pending shipment; 2->Shipped; 3->Completed; 4->Closed; 5->Invalid order")
+    @Schema(title = "Order status: 0->Pending Payment; 1->Pending Delivery; 2->Delivered; 3->Completed; 4->Closed; 5->Invalid")
     private Integer status;
 }

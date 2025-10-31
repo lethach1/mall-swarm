@@ -24,7 +24,7 @@ public class SmsHomeAdvertiseController {
     @Autowired
     private SmsHomeAdvertiseService advertiseService;
 
-    @Operation(summary = "Add advertisement")
+    @Operation(summary = "Create advertisement")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody SmsHomeAdvertise advertise) {
@@ -72,7 +72,7 @@ public class SmsHomeAdvertiseController {
         return CommonResult.failed();
     }
 
-    @Operation(summary = "Paginated query of advertisements")
+    @Operation(summary = "Paginated query advertisements")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<SmsHomeAdvertise>> list(@RequestParam(value = "name", required = false) String name,

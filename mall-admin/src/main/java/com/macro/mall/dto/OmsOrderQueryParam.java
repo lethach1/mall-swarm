@@ -15,11 +15,11 @@ public class OmsOrderQueryParam {
     private String orderSn;
     @Schema(title = "Receiver name/phone")
     private String receiverKeyword;
-    @Schema(title = "Order status: 0->Pending payment; 1->Pending shipment; 2->Shipped; 3->Completed; 4->Closed; 5->Invalid order")
+    @Schema(title = "Order status: 0->Pending Payment; 1->Pending Delivery; 2->Delivered; 3->Completed; 4->Closed; 5->Invalid")
     private Integer status;
     @Schema(title = "Order type: 0->Normal; 1->Flash sale")
     private Integer orderType;
-    @Schema(title = "Order source: 0->PC; 1->App")
+    @Schema(title = "Source type: 0->PC; 1->App")
     private Integer sourceType;
     @Schema(title = "Order submission time")
     private String createTime;

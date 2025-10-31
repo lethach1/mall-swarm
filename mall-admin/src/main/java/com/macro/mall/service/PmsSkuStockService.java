@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface PmsSkuStockService {
     /**
-     * Fuzzy search by product ID and skuCode
+     * Fuzzy search by product ID and SKU code
      */
     List<PmsSkuStock> getList(Long pid, String keyword);
 

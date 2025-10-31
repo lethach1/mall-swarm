@@ -16,16 +16,16 @@ import java.util.List;
 public class PmsProductParam extends PmsProduct{
     @Schema(title = "Product ladder pricing settings")
     private List<PmsProductLadder> productLadderList;
-    @Schema(title = "Product full reduction pricing settings")
+    @Schema(title = "Product full reduction settings")
     private List<PmsProductFullReduction> productFullReductionList;
-    @Schema(title = "Product member pricing settings")
+    @Schema(title = "Member price settings")
     private List<PmsMemberPrice> memberPriceList;
-    @Schema(title = "Product SKU stock information")
+    @Schema(title = "SKU stock information")
     private List<PmsSkuStock> skuStockList;
     @Schema(title = "Product parameters and custom specification attributes")
     private List<PmsProductAttributeValue> productAttributeValueList;
-    @Schema(title = "Relations between subjects and products")
+    @Schema(title = "Subject-product relations")
     private List<CmsSubjectProductRelation> subjectProductRelationList;
-    @Schema(title = "Relations between preference areas and products")
+    @Schema(title = "Preference area-product relations")
     private List<CmsPrefrenceAreaProductRelation> prefrenceAreaProductRelationList;
 }

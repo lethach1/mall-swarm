@@ -23,7 +23,7 @@ public class PmsSkuStockController {
     @Autowired
     private PmsSkuStockService skuStockService;
 
-    @Operation(summary = "Fuzzy search SKU stock by product ID and code")
+    @Operation(summary = "Fuzzy search SKU stock by product id and SKU code")
     @RequestMapping(value = "/{pid}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<PmsSkuStock>> getList(@PathVariable Long pid, @RequestParam(value = "keyword",required = false) String keyword) {

@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
- * Product subject/topic management Controller
+ * Product subject management Controller
  * Created by macro on 2018/6/1.
  */
 @Controller
-@Tag(name = "CmsSubjectController", description = "Product subject/topic management")
+@Tag(name = "CmsSubjectController", description = "Product subject management")
 @RequestMapping("/subject")
 public class CmsSubjectController {
     @Autowired

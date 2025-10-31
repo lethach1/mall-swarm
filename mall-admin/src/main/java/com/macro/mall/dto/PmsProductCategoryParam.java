@@ -23,11 +23,11 @@ public class PmsProductCategoryParam {
     private String name;
     @Schema(title = "Category unit")
     private String productUnit;
-    @FlagValidator(value = {"0","1"},message = "Status can only be 0 or 1")
-    @Schema(title = "Display in navigation bar")
+    @FlagValidator(value = {"0","1"},message = "Status must be 0 or 1")
+    @Schema(title = "Show in navigation")
     private Integer navStatus;
-    @FlagValidator(value = {"0","1"},message = "Status can only be 0 or 1")
-    @Schema(title = "Whether to display")
+    @FlagValidator(value = {"0","1"},message = "Status must be 0 or 1")
+    @Schema(title = "Is visible")
     private Integer showStatus;
     @Min(value = 0)
     @Schema(title = "Sort order")
@@ -38,6 +38,6 @@ public class PmsProductCategoryParam {
     private String keywords;
     @Schema(title = "Description")
     private String description;
-    @Schema(title = "Set of product-related filter attribute IDs")
+    @Schema(title = "Related filter attribute IDs")
     private List<Long> productAttributeIdList;
 }

@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface SmsFlashPromotionSessionService {
     /**
-     * Add session
+     * Create session
      */
     int create(SmsFlashPromotionSession promotionSession);
 
@@ -31,7 +31,7 @@ public interface SmsFlashPromotionSessionService {
     int delete(Long id);
 
     /**
-     * Get details
+     * Get detail
      */
     SmsFlashPromotionSession getItem(Long id);
 

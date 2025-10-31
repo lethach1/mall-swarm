@@ -66,7 +66,7 @@ public class OmsOrderReturnReasonController {
         return CommonResult.success(CommonPage.restPage(reasonList));
     }
 
-    @Operation(summary = "Get single return reason details")
+    @Operation(summary = "Get return reason details")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<OmsOrderReturnReason> getItem(@PathVariable Long id) {
@@ -74,7 +74,7 @@ public class OmsOrderReturnReasonController {
         return CommonResult.success(reason);
     }
 
-    @Operation(summary = "Update enable status of return reasons")
+    @Operation(summary = "Update return reason status")
     @RequestMapping(value = "/update/status", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateStatus(@RequestParam(value = "status") Integer status,

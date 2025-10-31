@@ -76,7 +76,7 @@ public class OmsOrderController {
         return CommonResult.success(orderDetailResult);
     }
 
-    @Operation(summary = "Update recipient information")
+    @Operation(summary = "Update receiver information")
     @RequestMapping(value = "/update/receiverInfo", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateReceiverInfo(@RequestBody OmsReceiverInfoParam receiverInfoParam) {
@@ -87,7 +87,7 @@ public class OmsOrderController {
         return CommonResult.failed();
     }
 
-    @Operation(summary = "Update order fee information")
+    @Operation(summary = "Update order cost information")
     @RequestMapping(value = "/update/moneyInfo", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateReceiverInfo(@RequestBody OmsMoneyInfoParam moneyInfoParam) {
@@ -98,7 +98,7 @@ public class OmsOrderController {
         return CommonResult.failed();
     }
 
-    @Operation(summary = "Add order remark")
+    @Operation(summary = "Add order note")
     @RequestMapping(value = "/update/note", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateNote(@RequestParam("id") Long id,

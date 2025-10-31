@@ -39,7 +39,7 @@ public class PmsProductController {
         }
     }
 
-    @Operation(summary = "Get product editing information by product ID")
+    @Operation(summary = "Get product edit info by product id")
     @RequestMapping(value = "/updateInfo/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<PmsProductResult> getUpdateInfo(@PathVariable Long id) {
@@ -117,7 +117,7 @@ public class PmsProductController {
         }
     }
 
-    @Operation(summary = "Batch mark as new")
+    @Operation(summary = "Batch set as new")
     @RequestMapping(value = "/update/newStatus", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateNewStatus(@RequestParam("ids") List<Long> ids,

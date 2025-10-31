@@ -13,9 +13,9 @@ import lombok.EqualsAndHashCode;
 public class PmsProductQueryParam {
     @Schema(title = "Publish status")
     private Integer publishStatus;
-    @Schema(title = "Verification status")
+    @Schema(title = "Verify status")
     private Integer verifyStatus;
-    @Schema(title = "Fuzzy keyword for product name")
+    @Schema(title = "Product name keyword")
     private String keyword;
     @Schema(title = "Product SKU")
     private String productSn;

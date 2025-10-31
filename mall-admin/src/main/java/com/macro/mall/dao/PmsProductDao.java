@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface PmsProductDao {
     /**
-     * Get product editing information
+     * Get product edit information
      */
     PmsProductResult getUpdateInfo(@Param("id") Long id);
 }

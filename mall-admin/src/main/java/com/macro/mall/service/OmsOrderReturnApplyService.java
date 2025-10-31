@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface OmsOrderReturnApplyService {
     /**
-     * Paginated query of applications
+     * List applications with pagination
      */
     List<OmsOrderReturnApply> list(OmsReturnApplyQueryParam queryParam, Integer pageSize, Integer pageNum);
 
@@ -28,7 +28,7 @@ public interface OmsOrderReturnApplyService {
     int updateStatus(Long id, OmsUpdateStatusParam statusParam);
 
     /**
-     * Get details of specified application
+     * Get specified application details
      */
     OmsOrderReturnApplyResult getItem(Long id);
 }

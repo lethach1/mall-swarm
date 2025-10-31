@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface SmsHomeAdvertiseService {
     /**
-     * Add advertisement
+     * Create advertisement
      */
     int create(SmsHomeAdvertise advertise);
 
@@ -25,7 +25,7 @@ public interface SmsHomeAdvertiseService {
     int updateStatus(Long id, Integer status);
 
     /**
-     * Get advertisement details
+     * Get advertisement detail
      */
     SmsHomeAdvertise getItem(Long id);
 

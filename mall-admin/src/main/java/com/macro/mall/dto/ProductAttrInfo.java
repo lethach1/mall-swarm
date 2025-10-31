@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Attribute information corresponding to product category
+ * Attribute information corresponding to a product category
  * Created by macro on 2018/5/23.
  */
 @Data

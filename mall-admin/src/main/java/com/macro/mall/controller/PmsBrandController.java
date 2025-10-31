@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * Brand features Controller
+ * Brand management Controller
  * Created by macro on 2018/4/26.
  */
 @Controller
@@ -26,14 +26,14 @@ public class PmsBrandController {
     @Autowired
     private PmsBrandService brandService;
 
-    @Operation(summary = "Get all brand list")
+    @Operation(summary = "Get all brands")
     @RequestMapping(value = "/listAll", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<PmsBrand>> getList() {
         return CommonResult.success(brandService.listAllBrand());
     }
 
-    @Operation(summary = "Add brand")
+    @Operation(summary = "Create brand")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@Validated @RequestBody PmsBrandParam pmsBrand) {
@@ -84,7 +84,7 @@ public class PmsBrandController {
         return CommonResult.success(CommonPage.restPage(brandList));
     }
 
-    @Operation(summary = "Get brand info by ID")
+    @Operation(summary = "Get brand by id")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<PmsBrand> getItem(@PathVariable("id") Long id) {

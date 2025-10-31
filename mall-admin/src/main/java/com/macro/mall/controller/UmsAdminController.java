@@ -51,13 +51,13 @@ public class UmsAdminController {
         return CommonResult.success(umsAdmin);
     }
 
-    @Operation(summary = "Return token after login")
+    @Operation(summary = "Return token after successful login")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult login(@Validated @RequestBody UmsAdminLoginParam umsAdminLoginParam) {
         SaTokenInfo saTokenInfo  = adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
         if (saTokenInfo  == null) {
-            return CommonResult.validateFailed("Incorrect username or password");
+            return CommonResult.validateFailed("Invalid username or password");
         }
         Map<String, String> tokenMap = new HashMap<>();
         tokenMap.put("token", saTokenInfo.getTokenValue() );
@@ -90,7 +90,7 @@ public class UmsAdminController {
         return CommonResult.success(null);
     }
 
-    @Operation(summary = "Get user list by username or name with pagination")
+    @Operation(summary = "Paginated query of users by username or name")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<UmsAdmin>> list(@RequestParam(value = "keyword", required = false) String keyword,
@@ -100,7 +100,7 @@ public class UmsAdminController {
         return CommonResult.success(CommonPage.restPage(adminList));
     }
 
-    @Operation(summary = "Get specified user information")
+    @Operation(summary = "Get specified user info")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<UmsAdmin> getItem(@PathVariable Long id) {
@@ -108,7 +108,7 @@ public class UmsAdminController {
         return CommonResult.success(admin);
     }
 
-    @Operation(summary = "Update specified user information")
+    @Operation(summary = "Update specified user info")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult update(@PathVariable Long id, @RequestBody UmsAdmin admin) {
@@ -127,7 +127,7 @@ public class UmsAdminController {
         if (status > 0) {
             return CommonResult.success(status);
         } else if (status == -1) {
-            return CommonResult.failed("Invalid parameters submitted");
+            return CommonResult.failed("Invalid request parameters");
         } else if (status == -2) {
             return CommonResult.failed("User not found");
         } else if (status == -3) {
@@ -137,7 +137,7 @@ public class UmsAdminController {
         }
     }
 
-    @Operation(summary = "Delete specified user information")
+    @Operation(summary = "Delete specified user")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult delete(@PathVariable Long id) {

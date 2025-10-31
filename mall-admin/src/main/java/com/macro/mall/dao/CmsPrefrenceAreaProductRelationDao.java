@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * Custom DAO for preference and product relation operations
+ * Custom DAO for preference area and product relations
  * Created by macro on 2018/4/26.
  */
 public interface CmsPrefrenceAreaProductRelationDao {

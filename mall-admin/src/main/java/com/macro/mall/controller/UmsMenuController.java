@@ -26,7 +26,7 @@ public class UmsMenuController {
     @Autowired
     private UmsMenuService menuService;
 
-    @Operation(summary = "Add admin menu")
+    @Operation(summary = "Create admin menu")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody UmsMenu umsMenu) {
@@ -71,7 +71,7 @@ public class UmsMenuController {
         }
     }
 
-    @Operation(summary = "Paginated query of admin menus")
+    @Operation(summary = "Paginated query admin menus")
     @RequestMapping(value = "/list/{parentId}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<UmsMenu>> list(@PathVariable Long parentId,
@@ -81,7 +81,7 @@ public class UmsMenuController {
         return CommonResult.success(CommonPage.restPage(menuList));
     }
 
-    @Operation(summary = "Return all menus in tree structure")
+    @Operation(summary = "Return all menus as tree structure")
     @RequestMapping(value = "/treeList", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<UmsMenuNode>> treeList() {
@@ -89,7 +89,7 @@ public class UmsMenuController {
         return CommonResult.success(list);
     }
 
-    @Operation(summary = "Update menu display status")
+    @Operation(summary = "Update menu hidden status")
     @RequestMapping(value = "/updateHidden/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateHidden(@PathVariable Long id, @RequestParam("hidden") Integer hidden) {

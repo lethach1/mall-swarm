@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface OmsCompanyAddressService {
     /**
-     * Get all shipping addresses
+     * List all shipping addresses
      */
     List<OmsCompanyAddress> list();
 }

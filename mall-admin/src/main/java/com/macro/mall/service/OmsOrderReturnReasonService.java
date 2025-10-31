@@ -5,12 +5,12 @@ import com.macro.mall.model.OmsOrderReturnReason;
 import java.util.List;
 
 /**
- * Order return reason management Service
+ * Return reason management Service
  * Created by macro on 2018/10/17.
  */
 public interface OmsOrderReturnReasonService {
     /**
-     * Add return reason
+     * Create return reason
      */
     int create(OmsOrderReturnReason returnReason);
 
@@ -25,7 +25,7 @@ public interface OmsOrderReturnReasonService {
     int delete(List<Long> ids);
 
     /**
-     * Get return reasons with pagination
+     * List return reasons with pagination
      */
     List<OmsOrderReturnReason> list(Integer pageSize, Integer pageNum);
 
@@ -35,7 +35,7 @@ public interface OmsOrderReturnReasonService {
     int updateStatus(List<Long> ids, Integer status);
 
     /**
-     * Get single return reason details
+     * Get return reason details
      */
     OmsOrderReturnReason getItem(Long id);
 }

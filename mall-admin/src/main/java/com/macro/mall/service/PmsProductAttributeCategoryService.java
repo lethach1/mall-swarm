@@ -36,7 +36,7 @@ public interface PmsProductAttributeCategoryService {
     List<PmsProductAttributeCategory> getList(Integer pageSize, Integer pageNum);
 
     /**
-     * Get attribute categories that include attributes
+     * Get attribute categories including attributes
      */
     List<PmsProductAttributeCategoryItem> getListWithAttr();
 }

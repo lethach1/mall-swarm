@@ -24,7 +24,7 @@ public class UmsRoleController {
     @Autowired
     private UmsRoleService roleService;
 
-    @Operation(summary = "Add role")
+    @Operation(summary = "Create role")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody UmsRole role) {
@@ -65,7 +65,7 @@ public class UmsRoleController {
         return CommonResult.success(roleList);
     }
 
-    @Operation(summary = "Get role list by role name with pagination")
+    @Operation(summary = "Paginated query roles by name")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<UmsRole>> list(@RequestParam(value = "keyword", required = false) String keyword,
@@ -88,7 +88,7 @@ public class UmsRoleController {
         return CommonResult.failed();
     }
 
-    @Operation(summary = "Get menus related to role")
+    @Operation(summary = "Get menus for role")
     @RequestMapping(value = "/listMenu/{roleId}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<UmsMenu>> listMenu(@PathVariable Long roleId) {
@@ -96,7 +96,7 @@ public class UmsRoleController {
         return CommonResult.success(roleList);
     }
 
-    @Operation(summary = "Get resources related to role")
+    @Operation(summary = "Get resources for role")
     @RequestMapping(value = "/listResource/{roleId}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<UmsResource>> listResource(@PathVariable Long roleId) {

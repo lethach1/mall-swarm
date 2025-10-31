@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * @auther macrozheng
- * @description 后台用户服务远程调用Service
+ * @author macrozheng
+ * @description Remote service for admin user operations
  * @date 2024/1/30
  * @github https://github.com/macrozheng
  */

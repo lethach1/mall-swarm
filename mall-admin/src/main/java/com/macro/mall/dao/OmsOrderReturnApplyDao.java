@@ -18,7 +18,7 @@ public interface OmsOrderReturnApplyDao {
     List<OmsOrderReturnApply> getList(@Param("queryParam") OmsReturnApplyQueryParam queryParam);
 
     /**
-     * Get application details
+     * Get application detail
      */
     OmsOrderReturnApplyResult getDetail(@Param("id")Long id);
 }

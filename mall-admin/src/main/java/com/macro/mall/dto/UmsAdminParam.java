@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 
 /**
- * User login parameters
+ * Admin user parameters
  * Created by macro on 2018/4/26.
  */
 @Getter
@@ -25,7 +25,7 @@ public class UmsAdminParam {
     @Schema(title = "Email")
     @Email
     private String email;
-    @Schema(title = "User nickname")
+    @Schema(title = "Nickname")
     private String nickName;
     @Schema(title = "Note")
     private String note;

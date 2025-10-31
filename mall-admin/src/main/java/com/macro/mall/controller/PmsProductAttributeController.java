@@ -41,7 +41,7 @@ public class PmsProductAttributeController {
         return CommonResult.success(CommonPage.restPage(productAttributeList));
     }
 
-    @Operation(summary = "Add product attribute information")
+    @Operation(summary = "Create product attribute")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody PmsProductAttributeParam productAttributeParam) {
@@ -53,7 +53,7 @@ public class PmsProductAttributeController {
         }
     }
 
-    @Operation(summary = "Update product attribute information")
+    @Operation(summary = "Update product attribute")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult update(@PathVariable Long id, @RequestBody PmsProductAttributeParam productAttributeParam) {
@@ -65,7 +65,7 @@ public class PmsProductAttributeController {
         }
     }
 
-    @Operation(summary = "Query single product attribute")
+    @Operation(summary = "Get single product attribute")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<PmsProductAttribute> getItem(@PathVariable Long id) {
@@ -85,7 +85,7 @@ public class PmsProductAttributeController {
         }
     }
 
-    @Operation(summary = "Get product attributes and attribute categories by product category ID")
+    @Operation(summary = "Get product attributes and categories by product category id")
     @RequestMapping(value = "/attrInfo/{productCategoryId}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<ProductAttrInfo>> getAttrInfo(@PathVariable Long productCategoryId) {

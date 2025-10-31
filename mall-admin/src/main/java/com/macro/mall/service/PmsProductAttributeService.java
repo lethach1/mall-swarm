@@ -14,13 +14,13 @@ import java.util.List;
 public interface PmsProductAttributeService {
     /**
      * Get product attributes by category with pagination
-     * @param cid category ID
-     * @param type 0->attribute; 2->parameter
+     * @param cid category id
+     * @param type 0->Attribute; 2->Parameter
      */
     List<PmsProductAttribute> getList(Long cid, Integer type, Integer pageSize, Integer pageNum);
 
     /**
-     * Add product attribute
+     * Create product attribute
      */
     @Transactional
     int create(PmsProductAttributeParam pmsProductAttributeParam);

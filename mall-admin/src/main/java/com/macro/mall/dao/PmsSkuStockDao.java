@@ -11,12 +11,12 @@ import java.util.List;
  */
 public interface PmsSkuStockDao {
     /**
-     * Batch insert operation
+     * Batch insert
      */
     int insertList(@Param("list")List<PmsSkuStock> skuStockList);
 
     /**
-     * Batch insert or replace operation
+     * Batch insert or replace
      */
     int replaceList(@Param("list")List<PmsSkuStock> skuStockList);
 }

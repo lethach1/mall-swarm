@@ -27,7 +27,7 @@ public class PmsProductCategoryController {
     @Autowired
     private PmsProductCategoryService productCategoryService;
 
-    @Operation(summary = "Add product category")
+    @Operation(summary = "Create product category")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@Validated @RequestBody PmsProductCategoryParam productCategoryParam) {
@@ -53,7 +53,7 @@ public class PmsProductCategoryController {
         }
     }
 
-    @Operation(summary = "Paginated query of product categories")
+    @Operation(summary = "Paginated query product categories")
     @RequestMapping(value = "/list/{parentId}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<PmsProductCategory>> getList(@PathVariable Long parentId,
@@ -63,7 +63,7 @@ public class PmsProductCategoryController {
         return CommonResult.success(CommonPage.restPage(productCategoryList));
     }
 
-    @Operation(summary = "Get product category by ID")
+    @Operation(summary = "Get product category by id")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<PmsProductCategory> getItem(@PathVariable Long id) {
@@ -83,7 +83,7 @@ public class PmsProductCategoryController {
         }
     }
 
-    @Operation(summary = "Update navigation bar display status")
+    @Operation(summary = "Update navigation display status")
     @RequestMapping(value = "/update/navStatus", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateNavStatus(@RequestParam("ids") List<Long> ids, @RequestParam("navStatus") Integer navStatus) {

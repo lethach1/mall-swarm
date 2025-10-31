@@ -7,7 +7,7 @@ import lombok.Setter;
 import jakarta.validation.constraints.NotEmpty;
 
 /**
- * Parameters for changing username and password
+ * Parameters for updating username and password
  * Created by macro on 2019/10/9.
  */
 @Getter

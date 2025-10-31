@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @auther macrozheng
- * @description Sa-Token related configuration
+ * @description Sa-Token相关配置
  * @date 2023/11/28
  * @github https://github.com/macrozheng
  */

@@ -10,7 +10,7 @@ import lombok.Setter;
 import java.util.List;
 
 /**
- * DTO containing attributes under a category
+ * DTO including attributes under a category
  * Created by macro on 2018/5/24.
  */
 public class PmsProductAttributeCategoryItem extends PmsProductAttributeCategory {

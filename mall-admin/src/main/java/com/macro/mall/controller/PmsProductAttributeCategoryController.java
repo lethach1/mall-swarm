@@ -25,7 +25,7 @@ public class PmsProductAttributeCategoryController {
     @Autowired
     private PmsProductAttributeCategoryService productAttributeCategoryService;
 
-    @Operation(summary = "Add product attribute category")
+    @Operation(summary = "Create product attribute category")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestParam String name) {
@@ -49,7 +49,7 @@ public class PmsProductAttributeCategoryController {
         }
     }
 
-    @Operation(summary = "Delete a single product attribute category")
+    @Operation(summary = "Delete single product attribute category")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult delete(@PathVariable Long id) {
@@ -61,7 +61,7 @@ public class PmsProductAttributeCategoryController {
         }
     }
 
-    @Operation(summary = "Get single product attribute category information")
+    @Operation(summary = "Get single product attribute category info")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<PmsProductAttributeCategory> getItem(@PathVariable Long id) {
@@ -69,7 +69,7 @@ public class PmsProductAttributeCategoryController {
         return CommonResult.success(productAttributeCategory);
     }
 
-    @Operation(summary = "Get all product attribute categories with pagination")
+    @Operation(summary = "Paginated list of all product attribute categories")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<PmsProductAttributeCategory>> getList(@RequestParam(defaultValue = "5") Integer pageSize, @RequestParam(defaultValue = "1") Integer pageNum) {
@@ -77,7 +77,7 @@ public class PmsProductAttributeCategoryController {
         return CommonResult.success(CommonPage.restPage(productAttributeCategoryList));
     }
 
-    @Operation(summary = "Get all product attribute categories and their attributes")
+    @Operation(summary = "Get all product attribute categories with attributes")
     @RequestMapping(value = "/list/withAttr", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<PmsProductAttributeCategoryItem>> getListWithAttr() {

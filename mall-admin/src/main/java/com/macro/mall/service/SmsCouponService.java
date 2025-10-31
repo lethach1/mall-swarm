@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface SmsCouponService {
     /**
-     * Add coupon
+     * Create coupon
      */
     @Transactional
     int create(SmsCouponParam couponParam);
@@ -30,13 +30,13 @@ public interface SmsCouponService {
     int update(Long id, SmsCouponParam couponParam);
 
     /**
-     * Get coupon list with pagination
+     * Paginated query of coupons
      */
     List<SmsCoupon> list(String name, Integer type, Integer pageSize, Integer pageNum);
 
     /**
      * Get coupon details
-     * @param id coupon table ID
+     * @param id Coupon table ID
      */
     SmsCouponParam getItem(Long id);
 }

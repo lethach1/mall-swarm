@@ -21,10 +21,10 @@ public class PmsProductAttributeParam {
     @Schema(title = "Attribute name")
     private String name;
     @FlagValidator({"0","1","2"})
-    @Schema(title = "Attribute selection type: 0->Unique; 1->Single; 2->Multiple")
+    @Schema(title = "Attribute select type: 0->Unique; 1->Single; 2->Multiple")
     private Integer selectType;
     @FlagValidator({"0","1"})
-    @Schema(title = "Attribute input type: 0->Manual; 1->Select from list")
+    @Schema(title = "Input type: 0->Manual; 1->Select from list")
     private Integer inputType;
     @Schema(title = "Optional values, separated by commas")
     private String inputList;
@@ -34,10 +34,10 @@ public class PmsProductAttributeParam {
     @Schema(title = "Category filter style: 0->Normal; 1->Color")
     private Integer filterType;
     @FlagValidator({"0","1","2"})
-    @Schema(title = "Search type: 0->No search; 1->Keyword; 2->Range")
+    @Schema(title = "Search type: 0->None; 1->Keyword; 2->Range")
     private Integer searchType;
     @FlagValidator({"0","1"})
-    @Schema(title = "Whether products with the same attribute are related: 0->No; 1->Yes")
+    @Schema(title = "Associate products with same attribute: 0->No; 1->Yes")
     private Integer relatedStatus;
     @FlagValidator({"0","1"})
     @Schema(title = "Support manual addition: 0->No; 1->Yes")

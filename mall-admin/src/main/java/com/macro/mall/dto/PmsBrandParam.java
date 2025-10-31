@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 
 /**
- * Brand transfer parameters
+ * Brand parameters
  * Created by macro on 2018/4/26.
  */
 @Data
@@ -21,13 +21,13 @@ public class PmsBrandParam {
     @Schema(title = "Brand initial")
     private String firstLetter;
     @Min(value = 0)
-    @Schema(title = "Sort field")
+    @Schema(title = "Sort order")
     private Integer sort;
-    @FlagValidator(value = {"0","1"}, message = "Manufacturer status is incorrect")
-    @Schema(title = "Whether it is a manufacturer")
+    @FlagValidator(value = {"0","1"}, message = "Invalid manufacturer status")
+    @Schema(title = "Is manufacturer")
     private Integer factoryStatus;
-    @FlagValidator(value = {"0","1"}, message = "Display status is incorrect")
-    @Schema(title = "Whether to display")
+    @FlagValidator(value = {"0","1"}, message = "Invalid show status")
+    @Schema(title = "Is visible")
     private Integer showStatus;
     @NotEmpty
     @Schema(title = "Brand logo",required = true)

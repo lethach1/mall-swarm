@@ -23,7 +23,7 @@ public class SmsFlashPromotionController {
     @Autowired
     private SmsFlashPromotionService flashPromotionService;
 
-    @Operation(summary = "Add activity")
+    @Operation(summary = "Create activity")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody SmsFlashPromotion flashPromotion) {

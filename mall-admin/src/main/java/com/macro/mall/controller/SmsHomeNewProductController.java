@@ -14,17 +14,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * Home page new products management Controller
+ * Home page new product management Controller
  * Created by macro on 2018/11/6.
  */
 @Controller
-@Tag(name = "SmsHomeNewProductController", description = "Home page new products management")
+@Tag(name = "SmsHomeNewProductController", description = "Home page new product management")
 @RequestMapping("/home/newProduct")
 public class SmsHomeNewProductController {
     @Autowired
     private SmsHomeNewProductService homeNewProductService;
 
-    @Operation(summary = "Add home page new product recommendations")
+    @Operation(summary = "Create home page recommendations")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody List<SmsHomeNewProduct> homeBrandList) {
@@ -35,7 +35,7 @@ public class SmsHomeNewProductController {
         return CommonResult.failed();
     }
 
-    @Operation(summary = "Update recommendation sort order")
+    @Operation(summary = "Update recommend sort order")
     @RequestMapping(value = "/update/sort/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateSort(@PathVariable Long id, Integer sort) {
@@ -57,7 +57,7 @@ public class SmsHomeNewProductController {
         return CommonResult.failed();
     }
 
-    @Operation(summary = "Batch update recommendation status")
+    @Operation(summary = "Batch update recommend status")
     @RequestMapping(value = "/update/recommendStatus", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateRecommendStatus(@RequestParam("ids") List<Long> ids, @RequestParam Integer recommendStatus) {

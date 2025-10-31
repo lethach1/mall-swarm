@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 /**
- * Parameters for modifying order fee information
+ * Parameters for updating order cost information
  * Created by macro on 2018/10/29.
  */
 @Getter
@@ -17,8 +17,8 @@ public class OmsMoneyInfoParam {
     private Long orderId;
     @Schema(title = "Freight amount")
     private BigDecimal freightAmount;
-    @Schema(title = "Discount amount adjusted in admin backend")
+    @Schema(title = "Admin adjusted discount amount")
     private BigDecimal discountAmount;
-    @Schema(title = "Order status: 0->Pending payment; 1->Pending shipment; 2->Shipped; 3->Completed; 4->Closed; 5->Invalid order")
+    @Schema(title = "Order status: 0->Pending Payment; 1->Pending Delivery; 2->Delivered; 3->Completed; 4->Closed; 5->Invalid")
     private Integer status;
 }

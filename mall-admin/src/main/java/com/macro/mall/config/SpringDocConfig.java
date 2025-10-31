@@ -25,13 +25,13 @@ public class SpringDocConfig implements WebMvcConfigurer {
     @Bean
     public OpenAPI mallAdminOpenAPI() {
         return new OpenAPI()
-                .info(new Info().title("mall后台系统")
-                        .description("mall后台相关接口文档")
+                .info(new Info().title("mall Admin System")
+                        .description("API documentation for mall Admin")
                         .version("v1.0.0")
                         .license(new License().name("Apache 2.0")
                                 .url("https://github.com/macrozheng/mall-learning")))
                 .externalDocs(new ExternalDocumentation()
-                        .description("SpringBoot实战电商项目mall（60K+Star）全套文档")
+                        .description("Complete documentation for the SpringBoot e-commerce project mall (60K+ Stars)")
                         .url("http://www.macrozheng.com"))
                 .addSecurityItem(new SecurityRequirement().addList(SECURITY_SCHEME_NAME))
                 .components(new Components()
@@ -45,15 +45,15 @@ public class SpringDocConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        // Configure so that accessing `/swagger-ui/` redirects to `/swagger-ui/index.html`
+        // Configure redirect from `/swagger-ui/` to `/swagger-ui/index.html`
         registry.addViewController("/swagger-ui/").setViewName("redirect:/swagger-ui/index.html");
     }
 
     @Bean
     public GlobalOpenApiCustomizer orderGlobalOpenApiCustomizer() {
-        // Resolve the issue where, after configuring authentication in Knife4j, the auth header is not added automatically
+        // Fix the issue where Knife4j cannot automatically add the auth header after enabling authentication
         return openApi -> {
-            // Add authentication parameters globally
+            // Globally add security requirement
             if (openApi.getPaths() != null) {
                 openApi.getPaths().forEach((s, pathItem) -> {
                     pathItem.readOperations().forEach(operation -> {

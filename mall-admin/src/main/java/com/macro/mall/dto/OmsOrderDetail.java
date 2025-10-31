@@ -20,6 +20,6 @@ public class OmsOrderDetail extends OmsOrder {
     private List<OmsOrderItem> orderItemList;
     @Getter
     @Setter
-    @Schema(title = "Order operation record list")
+    @Schema(title = "Order operation history list")
     private List<OmsOrderOperateHistory> historyList;
 }

@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Callback result for OSS file upload
+ * OSS upload file callback result
  * Created by macro on 2018/5/17.
  */
 @Data

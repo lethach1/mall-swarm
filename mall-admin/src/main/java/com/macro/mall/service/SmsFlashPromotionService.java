@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface SmsFlashPromotionService {
     /**
-     * Add activity
+     * Create activity
      */
     int create(SmsFlashPromotion flashPromotion);
 
@@ -30,7 +30,7 @@ public interface SmsFlashPromotionService {
     int updateStatus(Long id, Integer status);
 
     /**
-     * Get detailed information
+     * Get detail
      */
     SmsFlashPromotion getItem(Long id);
 

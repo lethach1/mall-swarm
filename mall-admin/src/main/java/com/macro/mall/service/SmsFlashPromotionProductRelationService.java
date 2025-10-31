@@ -35,13 +35,16 @@ public interface SmsFlashPromotionProductRelationService {
     /**
      * Paginated query of related products and promotion info
      *
-     * @param flashPromotionId        flash promotion ID
-     * @param flashPromotionSessionId flash promotion session ID
+     * @param flashPromotionId        Flash promotion ID
+     * @param flashPromotionSessionId Flash promotion session ID
      */
     List<SmsFlashPromotionProduct> list(Long flashPromotionId, Long flashPromotionSessionId, Integer pageSize, Integer pageNum);
 
     /**
-     * Get count of product relations by promotion and session ID
+     * Get relation count by promotion and session IDs
+     * @param flashPromotionId Flash promotion ID
+     * @param flashPromotionSessionId Flash promotion session ID
+     * @return count
      */
     long getCount(Long flashPromotionId,Long flashPromotionSessionId);
 }

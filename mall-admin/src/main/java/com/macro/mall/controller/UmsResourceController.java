@@ -26,7 +26,7 @@ public class UmsResourceController {
     @Autowired
     private UmsResourceService resourceService;
 
-    @Operation(summary = "Add admin resource")
+    @Operation(summary = "Create admin resource")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody UmsResource umsResource) {
@@ -71,7 +71,7 @@ public class UmsResourceController {
         }
     }
 
-    @Operation(summary = "Paginated fuzzy query of admin resources")
+    @Operation(summary = "Paginated fuzzy query admin resources")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<UmsResource>> list(@RequestParam(required = false) Long categoryId,
@@ -91,7 +91,7 @@ public class UmsResourceController {
         return CommonResult.success(resourceList);
     }
 
-    @Operation(summary = "Initialize association data between paths and resources")
+    @Operation(summary = "Initialize path-resource association data")
     @RequestMapping(value = "/initPathResourceMap", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult initPathResourceMap() {

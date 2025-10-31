@@ -31,7 +31,7 @@ public class UmsResourceCategoryController {
         return CommonResult.success(resourceList);
     }
 
-    @Operation(summary = "Add admin resource category")
+    @Operation(summary = "Create admin resource category")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody UmsResourceCategory umsResourceCategory) {
@@ -56,7 +56,7 @@ public class UmsResourceCategoryController {
         }
     }
 
-    @Operation(summary = "Delete admin resource by ID")
+    @Operation(summary = "Delete admin resource category by ID")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult delete(@PathVariable Long id) {

@@ -18,17 +18,17 @@ public interface UmsAdminRoleRelationDao {
     int insertList(@Param("list") List<UmsAdminRoleRelation> adminRoleRelationList);
 
     /**
-     * Get all roles for user
+     * Get all roles for a user
      */
     List<UmsRole> getRoleList(@Param("adminId") Long adminId);
 
     /**
-     * Get all accessible resources for user
+     * Get all accessible resources for a user
      */
     List<UmsResource> getResourceList(@Param("adminId") Long adminId);
 
     /**
-     * Get list of user IDs related to resource
+     * Get user ID list related to a resource
      */
     List<Long> getAdminIdList(@Param("resourceId") Long resourceId);
 }
