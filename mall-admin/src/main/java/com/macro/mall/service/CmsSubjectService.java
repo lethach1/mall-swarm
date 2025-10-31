@@ -5,17 +5,17 @@ import com.macro.mall.model.CmsSubject;
 import java.util.List;
 
 /**
- * 商品专题管理Service
+ * Product subject management Service
  * Created by macro on 2018/6/1.
  */
 public interface CmsSubjectService {
     /**
-     * 查询所有专题
+     * List all subjects
      */
     List<CmsSubject> listAll();
 
     /**
-     * 分页查询专题
+     * List subjects with pagination
      */
     List<CmsSubject> list(String keyword, Integer pageNum, Integer pageSize);
 }

@@ -23,8 +23,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import java.util.UUID;
 
 /**
- * @auther macrozheng
- * @description Spring Boot Admin的Security相关配置
+ * @author macrozheng
+ * @description Security configuration for Spring Boot Admin
  * @date 2024/1/16
  * @github https://github.com/macrozheng
  */

@@ -7,36 +7,36 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * 优惠券管理Service
+ * Coupon management Service
  * Created by macro on 2018/8/28.
  */
 public interface SmsCouponService {
     /**
-     * 添加优惠券
+     * Create coupon
      */
     @Transactional
     int create(SmsCouponParam couponParam);
 
     /**
-     * 根据优惠券id删除优惠券
+     * Delete coupon by ID
      */
     @Transactional
     int delete(Long id);
 
     /**
-     * 根据优惠券id更新优惠券信息
+     * Update coupon by ID
      */
     @Transactional
     int update(Long id, SmsCouponParam couponParam);
 
     /**
-     * 分页获取优惠券列表
+     * Paginated query of coupons
      */
     List<SmsCoupon> list(String name, Integer type, Integer pageSize, Integer pageNum);
 
     /**
-     * 获取优惠券详情
-     * @param id 优惠券表id
+     * Get coupon details
+     * @param id Coupon table ID
      */
     SmsCouponParam getItem(Long id);
 }

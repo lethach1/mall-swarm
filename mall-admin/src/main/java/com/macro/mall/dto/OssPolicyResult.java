@@ -5,22 +5,22 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 获取OSS上传文件授权返回结果
+ * Response for obtaining OSS upload authorization
  * Created by macro on 2018/5/17.
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class OssPolicyResult {
-    @Schema(title = "访问身份验证中用到用户标识")
+    @Schema(title = "User identifier used for access authentication")
     private String accessKeyId;
-    @Schema(title = "用户表单上传的策略,经过base64编码过的字符串")
+    @Schema(title = "Base64-encoded policy for form upload")
     private String policy;
-    @Schema(title = "对policy签名后的字符串")
+    @Schema(title = "Signature for the policy")
     private String signature;
-    @Schema(title = "上传文件夹路径前缀")
+    @Schema(title = "Upload directory prefix")
     private String dir;
-    @Schema(title = "oss对外服务的访问域名")
+    @Schema(title = "OSS external service host")
     private String host;
-    @Schema(title = "上传成功后的回调设置")
+    @Schema(title = "Callback settings after successful upload")
     private String callback;
 }

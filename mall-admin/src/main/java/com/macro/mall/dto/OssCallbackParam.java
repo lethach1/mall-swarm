@@ -5,16 +5,16 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * oss上传成功后的回调参数
+ * OSS upload success callback parameters
  * Created by macro on 2018/5/17.
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class OssCallbackParam {
-    @Schema(title = "请求的回调地址")
+    @Schema(title = "Callback URL")
     private String callbackUrl;
-    @Schema(title = "回调是传入request中的参数")
+    @Schema(title = "Callback body passed in request")
     private String callbackBody;
-    @Schema(title = "回调时传入参数的格式，比如表单提交形式")
+    @Schema(title = "Callback body type, e.g., form-data")
     private String callbackBodyType;
 }

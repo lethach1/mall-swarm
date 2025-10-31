@@ -7,18 +7,18 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 /**
- * 修改订单费用信息参数
+ * Parameters for updating order cost information
  * Created by macro on 2018/10/29.
  */
 @Getter
 @Setter
 public class OmsMoneyInfoParam {
-    @Schema(title = "订单ID")
+    @Schema(title = "Order ID")
     private Long orderId;
-    @Schema(title = "运费金额")
+    @Schema(title = "Freight amount")
     private BigDecimal freightAmount;
-    @Schema(title = "管理员后台调整订单使用的折扣金额")
+    @Schema(title = "Admin adjusted discount amount")
     private BigDecimal discountAmount;
-    @Schema(title = "订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单")
+    @Schema(title = "Order status: 0->Pending Payment; 1->Pending Delivery; 2->Delivered; 3->Completed; 4->Closed; 5->Invalid")
     private Integer status;
 }
