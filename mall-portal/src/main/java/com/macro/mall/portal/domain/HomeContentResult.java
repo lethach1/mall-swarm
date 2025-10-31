@@ -10,22 +10,22 @@ import lombok.Setter;
 import java.util.List;
 
 /**
- * 首页内容返回信息封装
+ * Wrapper for home page content response
  * Created by macro on 2019/1/28.
  */
 @Getter
 @Setter
 public class HomeContentResult {
-    //轮播广告
+    // Carousel advertisements
     private List<SmsHomeAdvertise> advertiseList;
-    //推荐品牌
+    // Recommended brands
     private List<PmsBrand> brandList;
-    //当前秒杀场次
+    // Current flash sale session
     private HomeFlashPromotion homeFlashPromotion;
-    //新品推荐
+    // New product recommendations
     private List<PmsProduct> newProductList;
-    //人气推荐
+    // Popular product recommendations
     private List<PmsProduct> hotProductList;
-    //推荐专题
+    // Recommended subjects
     private List<CmsSubject> subjectList;
 }

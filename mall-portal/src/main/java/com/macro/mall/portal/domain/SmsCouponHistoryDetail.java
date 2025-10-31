@@ -8,15 +8,15 @@ import com.macro.mall.model.SmsCouponProductRelation;
 import java.util.List;
 
 /**
- * 优惠券领取历史详情封装
+ * Wrapper for coupon claim history details
  * Created by macro on 2018/8/29.
  */
 public class SmsCouponHistoryDetail extends SmsCouponHistory {
-    //相关优惠券信息
+    // Related coupon information
     private SmsCoupon coupon;
-    //优惠券关联商品
+    // Products associated with the coupon
     private List<SmsCouponProductRelation> productRelationList;
-    //优惠券关联商品分类
+    // Product categories associated with the coupon
     private List<SmsCouponProductCategoryRelation> categoryRelationList;
 
     public SmsCoupon getCoupon() {

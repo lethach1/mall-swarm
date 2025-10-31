@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * 前台系统自定义商品Dao
+ * Custom product DAO for the frontend system
  * Created by macro on 2018/8/2.
  */
 public interface PortalProductDao {

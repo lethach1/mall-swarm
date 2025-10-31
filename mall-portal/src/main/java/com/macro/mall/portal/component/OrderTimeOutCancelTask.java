@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Created by macro on 2018/8/24.
- * 订单超时取消并解锁库存的定时器
+ * Scheduled task to cancel timed-out orders and unlock inventory
  */
 //@Component
 public class OrderTimeOutCancelTask {
@@ -18,8 +18,8 @@ public class OrderTimeOutCancelTask {
     private OmsPortalOrderService portalOrderService;
 
     /**
-     * cron表达式：Seconds Minutes Hours DayofMonth Month DayofWeek [Year]
-     * 每10分钟扫描一次，扫描设定超时时间之前下的订单，如果没支付则取消该订单
+     * Cron expression: Seconds Minutes Hours DayofMonth Month DayofWeek [Year]
+     * Scan every 10 minutes; for orders placed before the timeout threshold, cancel if unpaid
      */
     @Scheduled(cron = "0 0/10 * ? * ?")
     private void cancelTimeOutOrder(){

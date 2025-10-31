@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 首页当前秒杀场次信息
+ * Information about the current flash sale session on the home page
  * Created by macro on 2019/1/28.
  */
 @Getter
@@ -17,6 +17,6 @@ public class HomeFlashPromotion {
     private Date endTime;
     private Date nextStartTime;
     private Date nextEndTime;
-    //属于该秒杀活动的商品
+    // Products belonging to this flash sale
     private List<FlashPromotionProduct> productList;
 }

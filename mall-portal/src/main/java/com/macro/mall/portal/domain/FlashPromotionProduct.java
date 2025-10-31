@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 /**
- * 秒杀信息和商品对象封装
+ * Wrapper for flash sale info and product object
  * Created by macro on 2019/1/28.
  */
 @Getter
